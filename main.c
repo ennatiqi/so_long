@@ -6,7 +6,7 @@
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 13:11:04 by rennatiq          #+#    #+#             */
-/*   Updated: 2022/12/07 14:46:18 by rennatiq         ###   ########.fr       */
+/*   Updated: 2022/12/07 16:08:41 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,6 @@ void	read_maps(t_game *game)
 	close(fd);
 }
 
-void	count_c(t_game *game)
-{
-	int		i;
-	i = 0;
-	while (i < game->width * game->height)
-		if (game->line[i++] == 'C')
-			game->all_col++;
-}
 
 void	set_game(t_game *game)
 {
@@ -63,70 +55,14 @@ void	set_game(t_game *game)
 	setting_img(game);
 }
 
-t_game	*insert_to_game()
-{
-	t_game	*game;
-	game = (t_game *)malloc(sizeof(t_game));
-	game->col_cnt = 0;
-	game->all_col = 0;
-	game->walk_cnt = 0;
-	game->path.path_avatar = "./assets/avatar.xpm";
-	game->path.path_wall = "./assets/wall.xpm";
-	game->path.path_item = "./assets/coin1.xpm";
-	game->path.path_door = "./assets/exit2.xpm";
-	game->path.path_imt = "./assets/nothing.xpm";
-	game->path.path_monstr = "./assets/mons1.xpm";
-	return (game);
-}
-
-int	count_moster(t_game *game)
-{
-	int	i;
-
-	i = 0;
-	while (i++ < ft_strlen(game->line))
-		if (game->line[i] == 'A')
-			break ;
-	return (i);
-}
-
-int monster_move(t_game *game)
-{
-	static int i;
-	int move;
-	int mon;
-	
-	i++;
-	if (i % 5000 == 0)
-	{
-		mon = 0;
-		while (game->line[mon])
-		{
-			if (game->line[mon] == 'A')
-			{
-				move = rand() % 4;
-				if (move == 0)
-					move_monster_w(game,mon);
-				if (move == 1)
-					move_monster_s(game,mon);
-				if (move == 2)
-					move_monster_a(game,mon);
-				if (move == 3)
-					move_monster_d(game,mon);
-			}
-			mon++;
-		}
-	}
-	animation(game);
-	return 1;
-}
-
 int	main(void)
 {
 	t_game	*game;
+
 	game = insert_to_game();
 	game->mlx = mlx_init();
 	set_game(game);
+	set_monster(game);
 	mlx_key_hook(game->win, key_press, game);
 	mlx_hook(game->win, 17, 0, exit_game, game);
 	mlx_loop_hook(game->mlx, monster_move, game);

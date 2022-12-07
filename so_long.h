@@ -6,7 +6,7 @@
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:28:47 by rennatiq          #+#    #+#             */
-/*   Updated: 2022/12/07 14:41:02 by rennatiq         ###   ########.fr       */
+/*   Updated: 2022/12/07 16:08:36 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ typedef struct s_game
 	int		width;
 	void	*mlx;
 	void	*win;
+	int		count_monster;
+	int 	*ex;
 	t_img	img;
 	t_path	path;
 	int		col_cnt;
@@ -65,5 +67,7 @@ char	*ft_strjoin_so_long(char *s1, char *s2);
 char	*ft_strdup_noline(char *line);
 int		ft_strlen(char *base);
 void	set_game(t_game *game);
+t_game	*insert_to_game();
+void	count_c(t_game *game);
 
 #endif

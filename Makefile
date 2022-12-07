@@ -1,7 +1,7 @@
 CFLAGS = -Wall -Werror -Wextra
 NAME = so_long.a
 RM = rm -rf
-SRC = ./main.c utiles.c ./animation/move_monstor.c animation/key.c animation/move.c map/check_maps.c map/graphice.c ./ft_printf/ft_printf.c ./ft_printf/ft_putchar.c ./ft_printf/ft_putstr.c ./ft_printf/ft_putnbr_base.c ./ft_printf/ft_putnbr_pointer.c  ./get_next_line/get_next_line.c  ./get_next_line/get_next_line_utils.c 
+SRC = ./main.c utiles.c ./animation/utiles_monster.c ./animation/move_monstor.c animation/key.c animation/move.c map/check_maps.c map/graphice.c ./ft_printf/ft_printf.c ./ft_printf/ft_putchar.c ./ft_printf/ft_putstr.c ./ft_printf/ft_putnbr_base.c ./ft_printf/ft_putnbr_pointer.c  ./get_next_line/get_next_line.c  ./get_next_line/get_next_line_utils.c 
 OBJ = $(SRC:.c=.o )
 AR = ar -rc
 

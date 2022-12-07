@@ -6,7 +6,7 @@
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:30:09 by rennatiq          #+#    #+#             */
-/*   Updated: 2022/12/03 14:41:29 by rennatiq         ###   ########.fr       */
+/*   Updated: 2022/12/07 16:08:29 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,29 @@ char	*ft_strjoin_so_long(char *s1, char *s2)
 	free(s1);
 	free(s2);
 	return (resulta);
+}
+
+t_game	*insert_to_game()
+{
+	t_game	*game;
+
+	game = (t_game *)malloc(sizeof(t_game));
+	game->col_cnt = 0;
+	game->all_col = 0;
+	game->walk_cnt = 0;
+	game->path.path_avatar = "./assets/avatar.xpm";
+	game->path.path_wall = "./assets/wall.xpm";
+	game->path.path_item = "./assets/coin1.xpm";
+	game->path.path_door = "./assets/exit2.xpm";
+	game->path.path_imt = "./assets/nothing.xpm";
+	game->path.path_monstr = "./assets/mons1.xpm";
+	return (game);
+}
+void	count_c(t_game *game)
+{
+	int		i;
+	i = 0;
+	while (i < game->width * game->height)
+		if (game->line[i++] == 'C')
+			game->all_col++;
 }

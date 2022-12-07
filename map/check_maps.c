@@ -6,7 +6,7 @@
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:31:11 by rennatiq          #+#    #+#             */
-/*   Updated: 2022/12/03 15:34:22 by rennatiq         ###   ########.fr       */
+/*   Updated: 2022/12/07 16:30:05 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	check_ifisec_inmap(char *line)
 			return (0);
 		i++;
 	}
+	free(line);
 	return (1);
 }
 
@@ -54,6 +55,24 @@ char	*function(t_game *tmp, int i)
 	}
 	return (tmp->line);
 }
+char	*ft_strdup_m(char *s1)
+{
+	int		i;
+	char	*s2;
+	char	*s3;
+
+	i = 0;
+	s2 = (char *) malloc((ft_strlen(s1) + 1) * sizeof(char));
+	if (!s2)
+		return (0);
+	while (s1[i] != '\0')
+	{
+		s2[i] = s1[i];
+		i++;
+	}
+	s2[i] = '\0';
+	return (s2);
+}
 
 int	check_path(t_game *game)
 {
@@ -63,22 +82,9 @@ int	check_path(t_game *game)
 	t_game	*tmp;
 
 	tmp = malloc(sizeof(t_game));
+	tmp->width = game->width;
+	tmp->line = ft_strdup_m(game->line);
 	i = 0;
-	fd = open("./maps/map.txt", O_RDONLY);
-	line = get_next_line(fd);
-	tmp->height = 0;
-	tmp->width = ft_strlen(line) - 1;
-	tmp->line = ft_strdup_noline(line);
-	free(line);
-	while (line)
-	{
-		tmp->height++;
-		line = get_next_line(fd);
-		if (!line)
-			break ;
-		tmp->line = ft_strjoin_so_long(tmp->line, line);
-	}
-	close(fd);
 	while (tmp->line[i] != '\0')
 	{
 		if (tmp->line[i] == 'P')

@@ -1,5 +1,7 @@
 #include "animation.h"
 
+
+
 void move_monster_w(t_game *game,int i)
 {
 	if (game->line[i - game->width] == 'P')

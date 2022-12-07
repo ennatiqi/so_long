@@ -6,7 +6,7 @@
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:21:59 by rennatiq          #+#    #+#             */
-/*   Updated: 2022/12/06 10:34:35 by rennatiq         ###   ########.fr       */
+/*   Updated: 2022/12/07 16:08:04 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,34 @@ int     animation(void *game)
 	monstr_animation(play);
 	
 	return (1);
+}
+
+int monster_move(t_game *game)
+{
+	static int i;
+	int move;
+	int mon;
+	int m;
+	
+	i++;
+	if (i % 5000 == 0)
+	{
+		monster_position(game);
+		m = 0;
+		while (m < game->count_monster)
+		{
+			move = rand() % 4;
+			if (move == 0)
+				move_monster_w(game,game->ex[m]);
+			else if (move == 1)
+				move_monster_s(game,game->ex[m]);
+			else if (move == 2)
+				move_monster_a(game,game->ex[m]);
+			else if (move == 3)
+				move_monster_d(game,game->ex[m]);
+			m++;
+		}
+	}
+	animation(game);
+	return 1;
 }
