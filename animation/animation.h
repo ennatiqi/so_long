@@ -10,6 +10,9 @@ void	move_d(t_game *game);
 void	move_w(t_game *game);
 int		key_press(int keycode, t_game *game);
 int     animation(void *game);
-
+void    move_monster_w(t_game *game,int i);
+void    move_monster_s(t_game *game,int i);
+void    move_monster_a(t_game *game,int i);
+void    move_monster_d(t_game *game,int i);
 
 #endif

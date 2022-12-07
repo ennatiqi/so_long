@@ -6,7 +6,7 @@
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 21:31:03 by rennatiq          #+#    #+#             */
-/*   Updated: 2022/12/04 13:48:19 by rennatiq         ###   ########.fr       */
+/*   Updated: 2022/12/06 11:10:20 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	move_w(t_game *game)
 		game->col_cnt++;
 	if (game->line[i - game->width] == 'C' && game->all_col == game->col_cnt)
 		game->path.path_door = "./assets/exit.xpm";
+	if (game->line[i - game->width] == 'A')
+		exit(0);
 	if (game->line[i - game->width] == 'E' && game->all_col == game->col_cnt)
 		exit_game(game);
 	else if (game->line[i - game->width] != '1'
@@ -60,6 +62,8 @@ void	move_d(t_game *game)
 	i = count(game);
 	if (game->line[i + 1] == 'C')
 		game->col_cnt++;
+	if (game->line[i + 1] == 'A')
+		exit_game(game);
 	if (game->line[i + 1] == 'C' && game->all_col == game->col_cnt)
 		game->path.path_door = "./assets/exit.xpm";
 	if (game->line[i + 1] == 'E' && game->all_col == game->col_cnt)
@@ -86,6 +90,8 @@ void	move_a(t_game *game)
 	i = count(game);
 	if (game->line[i - 1] == 'C')
 		game->col_cnt++;
+	if (game->line[i - 1] == 'A')
+		exit(0);
 	if (game->line[i - 1] == 'C' && game->all_col == game->col_cnt)
 		game->path.path_door = "./assets/exit.xpm";
 	if (game->line[i - 1] == 'E' && game->all_col == game->col_cnt)
@@ -112,6 +118,8 @@ void	move_s(t_game *game)
 	i = count(game);
 	if (game->line[i + game->width] == 'C')
 		game->col_cnt++;
+	if (game->line[i + game->width] == 'A')
+		exit(0);
 	if (game->line[i + game->width] == 'C' && game->all_col == game->col_cnt)
 		game->path.path_door = "./assets/exit.xpm";
 	if (game->line[i + game->width] == 'E' && game->all_col == game->col_cnt)

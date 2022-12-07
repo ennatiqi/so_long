@@ -6,7 +6,7 @@
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:28:52 by rennatiq          #+#    #+#             */
-/*   Updated: 2022/12/04 13:33:38 by rennatiq         ###   ########.fr       */
+/*   Updated: 2022/12/06 10:33:14 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	put_image(t_game *game)
 			game->path.path_door, &width, &height);
 	game->img.imt = mlx_xpm_file_to_image(game->mlx,
 			game->path.path_imt, &width, &height);
+	game->img.monstr = mlx_xpm_file_to_image(game->mlx,
+			game->path.path_monstr, &width, &height);
 }
 
 void	graph(t_game *game, int i, int j)
@@ -51,6 +53,9 @@ void	graph(t_game *game, int i, int j)
 	else if (game->line[(i * game->width) + j] == 'E')
 		mlx_put_image_to_window(game->mlx, game->win,
 			game->img.door, j * 64, i * 64);
+	else if (game->line[(i * game->width) + j] == 'A')
+		mlx_put_image_to_window(game->mlx, game->win,
+			game->img.monstr, j * 64, i * 64);
 	else
 		mlx_put_image_to_window(game->mlx, game->win,
 			game->img.imt, j * 64, i * 64);
@@ -60,6 +65,7 @@ void	setting_img(t_game *game)
 {
 	int		i;
 	int		j;
+	
 
 	i = 0;
 	while (i < game->height)
@@ -72,4 +78,5 @@ void	setting_img(t_game *game)
 		}
 		i++;
 	}
+	mlx_string_put(game->mlx, game->win, 20,game->height * 64 + 20, 0x00FF0000, "rachid");
 }

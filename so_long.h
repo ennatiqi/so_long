@@ -6,7 +6,7 @@
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:28:47 by rennatiq          #+#    #+#             */
-/*   Updated: 2022/12/05 13:08:14 by rennatiq         ###   ########.fr       */
+/*   Updated: 2022/12/07 14:41:02 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 # define SO_LONG_H
 
 # include <unistd.h>
+#include <stdlib.h>
 # include <fcntl.h> 
 # include "mlx.h"
 # include "ft_printf/ft_printf.h"
 # include "./get_next_line/get_next_line.h"
+
 
 # define ESC_KEY 53
 # define W_KEY 13
@@ -32,7 +34,7 @@ typedef struct s_image
 	void	*item;
 	void	*door;
 	void	*imt;
-	void	*adow;
+	void	*monstr;
 }		t_img;
 
 typedef struct s_path
@@ -42,6 +44,7 @@ typedef struct s_path
 	char	*path_item;
 	char	*path_door;
 	char	*path_imt;
+	char	*path_monstr;
 }	t_path;
 
 typedef struct s_game

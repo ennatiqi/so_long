@@ -6,7 +6,7 @@
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:21:59 by rennatiq          #+#    #+#             */
-/*   Updated: 2022/12/05 13:15:42 by rennatiq         ###   ########.fr       */
+/*   Updated: 2022/12/06 10:34:35 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,66 @@ int	key_press(int keycode, t_game *game)
 	return (0);
 }
 
-void avatar_animation(t_game *game)
+void coin_animation(t_game *game)
 {
 	static int i;
 	i++;
 
-	if(i == 4001)
+	if(i == 16001)
 		i = 0;
 	if (i == 2000)
 	{
-		game->path.path_avatar = "./assets/avatar2.xpm";
+		game->path.path_item = "./assets/coin1.xpm";
 		put_image(game);
 		setting_img(game);
 	}
 	else if (i == 4000){
-		game->path.path_avatar = "./assets/avatar.xpm";
+		game->path.path_item = "./assets/coin2.xpm";
+		put_image(game);
+		setting_img(game);
+	}
+	else if (i == 8000){
+		game->path.path_item = "./assets/coin3.xpm";
+		put_image(game);
+		setting_img(game);
+	}
+	else if (i == 12000){
+		game->path.path_item = "./assets/coin4.xpm";
+		put_image(game);
+		setting_img(game);
+	}
+	else if (i == 16000){
+		game->path.path_item = "./assets/coin5.xpm";
+		put_image(game);
+		setting_img(game);
+	}
+}
+
+void monstr_animation(t_game *game)
+{
+	static int i;
+	i++;
+
+	if(i == 12001)
+		i = 0;
+	if (i == 2000)
+	{
+		game->path.path_monstr = "./assets/mons1.xpm";
+		put_image(game);
+		setting_img(game);
+	}
+	else if (i == 4000){
+		game->path.path_monstr = "./assets/mons2.xpm";
+		put_image(game);
+		setting_img(game);
+	}
+	else if (i == 8000){
+		game->path.path_monstr = "./assets/mons3.xpm";
+		put_image(game);
+		setting_img(game);
+	}
+	else if (i == 12000){
+		game->path.path_monstr = "./assets/mons4.xpm";
 		put_image(game);
 		setting_img(game);
 	}
@@ -51,6 +96,8 @@ int     animation(void *game)
 {
 	t_game *play;
 	play = game;
-	avatar_animation(play);
+	coin_animation(play);
+	monstr_animation(play);
+	
 	return (1);
 }
