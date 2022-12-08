@@ -6,7 +6,7 @@
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 21:31:03 by rennatiq          #+#    #+#             */
-/*   Updated: 2022/12/06 11:10:20 by rennatiq         ###   ########.fr       */
+/*   Updated: 2022/12/08 10:20:13 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	move_w(t_game *game)
 		game->line[i - game->width] = 'P';
 		game->walk_cnt++;
 		put_image(game);
-	setting_img(game);
+		setting_img(game);
 	}
 }
 
@@ -75,7 +75,7 @@ void	move_d(t_game *game)
 		game->walk_cnt++;
 		game->path.path_avatar = "./assets/avatar.xpm";
 		put_image(game);
-	setting_img(game);
+		setting_img(game);
 	}
 }
 
@@ -103,7 +103,7 @@ void	move_a(t_game *game)
 		game->walk_cnt++;
 		game->path.path_avatar = "./assets/avatar2.xpm";
 		put_image(game);
-	setting_img(game);
+		setting_img(game);
 	}
 }
 
@@ -131,6 +131,6 @@ void	move_s(t_game *game)
 		game->line[i + game->width] = 'P';
 		game->walk_cnt++;
 		put_image(game);
-	setting_img(game);
+		setting_img(game);
 	}
 }

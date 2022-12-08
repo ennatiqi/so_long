@@ -6,7 +6,7 @@
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:31:11 by rennatiq          #+#    #+#             */
-/*   Updated: 2022/12/07 16:30:05 by rennatiq         ###   ########.fr       */
+/*   Updated: 2022/12/08 11:26:29 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ char	*function(t_game *tmp, int i)
 	}
 	return (tmp->line);
 }
+
 char	*ft_strdup_m(char *s1)
 {
 	int		i;

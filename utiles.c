@@ -6,7 +6,7 @@
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:30:09 by rennatiq          #+#    #+#             */
-/*   Updated: 2022/12/07 16:08:29 by rennatiq         ###   ########.fr       */
+/*   Updated: 2022/12/08 11:28:11 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char	*ft_strjoin_so_long(char *s1, char *s2)
 	return (resulta);
 }
 
-t_game	*insert_to_game()
+t_game	*insert_to_game(void)
 {
 	t_game	*game;
 
@@ -81,11 +81,14 @@ t_game	*insert_to_game()
 	game->path.path_door = "./assets/exit2.xpm";
 	game->path.path_imt = "./assets/nothing.xpm";
 	game->path.path_monstr = "./assets/mons1.xpm";
+	game->walk_word = NULL;
 	return (game);
 }
+
 void	count_c(t_game *game)
 {
-	int		i;
+	int	i;
+
 	i = 0;
 	while (i < game->width * game->height)
 		if (game->line[i++] == 'C')

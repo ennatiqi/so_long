@@ -6,11 +6,12 @@
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:28:52 by rennatiq          #+#    #+#             */
-/*   Updated: 2022/12/06 10:33:14 by rennatiq         ###   ########.fr       */
+/*   Updated: 2022/12/08 11:27:15 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
+#include "../animation/animation.h"
 
 int	exit_game(t_game *game)
 {
@@ -65,7 +66,6 @@ void	setting_img(t_game *game)
 {
 	int		i;
 	int		j;
-	
 
 	i = 0;
 	while (i < game->height)
@@ -78,5 +78,11 @@ void	setting_img(t_game *game)
 		}
 		i++;
 	}
-	mlx_string_put(game->mlx, game->win, 20,game->height * 64 + 20, 0x00FF0000, "rachid");
+	if (game->walk_word)
+		mlx_string_put(game->mlx, game->win, 20,
+			game->height * 64 + 20, 0x00000000, game->walk_word);
+	game->walk_word = ft_itoa(game->walk_cnt);
+	game->walk_word = ft_strjoin_walk("walking avatar : ", game->walk_word);
+	mlx_string_put(game->mlx, game->win, 20,
+		game->height * 64 + 20, 0x00FF0000, game->walk_word);
 }
