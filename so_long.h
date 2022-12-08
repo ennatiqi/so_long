@@ -6,7 +6,7 @@
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:28:47 by rennatiq          #+#    #+#             */
-/*   Updated: 2022/12/08 11:27:53 by rennatiq         ###   ########.fr       */
+/*   Updated: 2022/12/08 12:36:41 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,7 @@ int		ft_strlen(char *base);
 void	set_game(t_game *game, char *map);
 t_game	*insert_to_game(void);
 void	count_c(t_game *game);
+void    you_lose(int res);
+void	you_win(void);
 
 #endif
