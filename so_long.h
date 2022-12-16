@@ -6,7 +6,7 @@
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:28:47 by rennatiq          #+#    #+#             */
-/*   Updated: 2022/12/08 12:36:41 by rennatiq         ###   ########.fr       */
+/*   Updated: 2022/12/16 14:29:08 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,49 @@ char	*ft_strjoin_so_long(char *s1, char *s2);
 char	*ft_strdup_noline(char *line);
 int		ft_strlen(char *base);
 void	set_game(t_game *game, char *map);
+void	set_game_bonus(t_game *game, char *map);
 t_game	*insert_to_game(void);
 void	count_c(t_game *game);
-void    you_lose(int res);
+void	you_lose(int res);
 void	you_win(void);
+void	read_maps(t_game *game, char *map);
+
+void	move_s_bonus(t_game *game);
+void	move_a_bonus(t_game *game);
+void	move_d_bonus(t_game *game);
+void	move_w_bonus(t_game *game);
+void	move_s(t_game *game);
+void	move_a(t_game *game);
+void	move_d(t_game *game);
+void	move_w(t_game *game);
+int		key_press_bonus(int keycode, t_game *game);
+int		key_press(int keycode, t_game *game);
+int		animation(void *game);
+void	move_monster_w(t_game *game, int i);
+void	move_monster_s(t_game *game, int i);
+void	move_monster_a(t_game *game, int i);
+void	move_monster_d(t_game *game, int i);
+void	set_monster(t_game *game);
+void	monster_position(t_game *game);
+int		monster_move(t_game *game);
+char	*ft_itoa(int n);
+char	*ft_strjoin_walk(char *s1, char *s2);
+void	ft_norminet(t_game *game, char *path_i, char *path_m);
+
+void	setting_img(t_game *game);
+int		check_path(t_game *game);
+void	put_image(t_game *game);
+void	put_image_bonus(t_game *game);
+void	setting_img_bonus(t_game *game);
+int		sheck_rectangular(t_game *game);
+int		map_contain(t_game *game);
+int		exit_game(t_game *game);
+char	*ft_strdup_m(char *s1);
+int		check_path_e(t_game *game);
+int		check_ber(char *str);
+int		check_map(t_game *game);
+int		check_map_bonus(t_game *game);
+int		check_ifis_file(char *map);
+void	read_maps(t_game *game, char *map);
 
 #endif

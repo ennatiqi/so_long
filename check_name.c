@@ -1,30 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_name.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 13:11:04 by rennatiq          #+#    #+#             */
-/*   Updated: 2022/12/16 09:55:39 by rennatiq         ###   ########.fr       */
+/*   Created: 2022/12/09 13:02:52 by rennatiq          #+#    #+#             */
+/*   Updated: 2022/12/16 10:22:29 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int ac, char **av)
+char	*ft_strchr(char *s, int c)
 {
-	t_game	*game;
+	while (*s != (unsigned char)c)
+	{
+		if (*s == '\0')
+			return (0);
+		s++;
+	}
+	return ((char *)s);
+}
 
-	if (ac != 2)
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while ((s1[i] == s2[i]) && (s1[i] != '\0' || s2[i] != '\0'))
+		i++;
+	return (s1[i] - s2[i]);
+}
+
+int	check_ber(char *str)
+{
+	char	*l;
+
+	l = ft_strchr(str, '.');
+	if (ft_strcmp(l, ".ber"))
 		return (0);
-	if (!check_ber(av[1]))
-		you_lose('N');
-	game = insert_to_game();
-	game->mlx = mlx_init();
-	set_game(game, av[1]);
-	mlx_hook(game->win, 17, 0, exit_game, game);
-	mlx_hook(game->win, 2, 0, key_press, game);
-	mlx_loop(game->mlx);
-	return (0);
+	return (1);
 }

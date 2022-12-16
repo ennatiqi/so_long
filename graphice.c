@@ -6,12 +6,11 @@
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:28:52 by rennatiq          #+#    #+#             */
-/*   Updated: 2022/12/08 11:59:55 by rennatiq         ###   ########.fr       */
+/*   Updated: 2022/12/16 10:23:07 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map.h"
-#include "../animation/animation.h"
+#include "so_long.h"
 
 int	exit_game(t_game *game)
 {
@@ -36,8 +35,6 @@ void	put_image(t_game *game)
 			game->path.path_door, &width, &height);
 	game->img.imt = mlx_xpm_file_to_image(game->mlx,
 			game->path.path_imt, &width, &height);
-	game->img.monstr = mlx_xpm_file_to_image(game->mlx,
-			game->path.path_monstr, &width, &height);
 }
 
 void	graph(t_game *game, int i, int j)
@@ -54,15 +51,30 @@ void	graph(t_game *game, int i, int j)
 	else if (game->line[(i * game->width) + j] == 'E')
 		mlx_put_image_to_window(game->mlx, game->win,
 			game->img.door, j * 64, i * 64);
-	else if (game->line[(i * game->width) + j] == 'A')
-		mlx_put_image_to_window(game->mlx, game->win,
-			game->img.monstr, j * 64, i * 64);
 	else
 		mlx_put_image_to_window(game->mlx, game->win,
 			game->img.imt, j * 64, i * 64);
 }
 
 void	setting_img(t_game *game)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	while (i < game->height)
+	{
+		j = 0;
+		while (j < game->width)
+		{
+			graph(game, i, j);
+			j++;
+		}
+		i++;
+	}
+}
+
+void	setting_img_bonus(t_game *game)
 {
 	int		i;
 	int		j;

@@ -1,4 +1,16 @@
-#include "animation.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utiles_walk.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/16 09:57:40 by rennatiq          #+#    #+#             */
+/*   Updated: 2022/12/16 14:31:44 by rennatiq         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "so_long.h"
 
 static int	lenght(int n)
 {
@@ -80,11 +92,7 @@ char	*ft_strjoin_walk(char *s1, char *s2)
 	}
 	j = 0;
 	while (i < (ft_strlen(s1) + ft_strlen(s2)))
-	{
-		resulta[i] = s2[j];
-		i++;
-		j++;
-	}
+		resulta[i++] = s2[j++];
 	resulta[i] = '\0';
 	free(s2);
 	return (resulta);

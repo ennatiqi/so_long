@@ -6,11 +6,11 @@
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:31:11 by rennatiq          #+#    #+#             */
-/*   Updated: 2022/12/08 12:37:57 by rennatiq         ###   ########.fr       */
+/*   Updated: 2022/12/16 09:58:26 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map.h"
+#include "so_long.h"
 
 int	check_ifisec_inmap(char *line)
 {

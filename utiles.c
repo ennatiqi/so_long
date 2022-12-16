@@ -6,7 +6,7 @@
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:30:09 by rennatiq          #+#    #+#             */
-/*   Updated: 2022/12/08 11:28:11 by rennatiq         ###   ########.fr       */
+/*   Updated: 2022/12/16 12:27:56 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ char	*ft_strdup_noline(char *line)
 		i++;
 	}
 	tmp[i] = '\0';
+	free(line);
 	return (tmp);
 }
 
@@ -72,15 +73,16 @@ t_game	*insert_to_game(void)
 	t_game	*game;
 
 	game = (t_game *)malloc(sizeof(t_game));
+	game->height = 0;
 	game->col_cnt = 0;
 	game->all_col = 0;
 	game->walk_cnt = 0;
-	game->path.path_avatar = "./assets/avatar.xpm";
-	game->path.path_wall = "./assets/wall.xpm";
-	game->path.path_item = "./assets/coin1.xpm";
-	game->path.path_door = "./assets/exit2.xpm";
-	game->path.path_imt = "./assets/nothing.xpm";
-	game->path.path_monstr = "./assets/mons1.xpm";
+	game->path.path_avatar = "./textures/avatar.xpm";
+	game->path.path_wall = "./textures/wall.xpm";
+	game->path.path_item = "./textures/coin1.xpm";
+	game->path.path_door = "./textures/exit2.xpm";
+	game->path.path_imt = "./textures/nothing.xpm";
+	game->path.path_monstr = "./textures/mons1.xpm";
 	game->walk_word = NULL;
 	return (game);
 }

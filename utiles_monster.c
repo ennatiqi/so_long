@@ -6,11 +6,11 @@
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 11:25:46 by rennatiq          #+#    #+#             */
-/*   Updated: 2022/12/08 11:25:56 by rennatiq         ###   ########.fr       */
+/*   Updated: 2022/12/16 09:57:46 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "animation.h"
+#include "so_long.h"
 
 int	count_moster(t_game *game)
 {
@@ -32,6 +32,8 @@ void	set_monster(t_game *game)
 {
 	game->count_monster = count_moster(game);
 	game->ex = malloc(game->count_monster * sizeof(int));
+	if (!game->ex)
+		you_lose('W');
 }
 
 void	monster_position(t_game *game)

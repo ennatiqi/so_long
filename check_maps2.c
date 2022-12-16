@@ -6,38 +6,69 @@
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 11:41:04 by rennatiq          #+#    #+#             */
-/*   Updated: 2022/12/08 12:34:49 by rennatiq         ###   ########.fr       */
+/*   Updated: 2022/12/16 10:22:00 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map.h"
+#include "so_long.h"
 
 int	map_contain(t_game *game)
 {
 	int	i;
-	int	num_e;
-	int	num_p;
-	int	num_c;
+	int	num[3];
 
 	i = 0;
-	num_e = 0;
-	num_p = 0;
-	num_c = 0;
-	while (i++ < ft_strlen(game->line))
+	num[0] = 0;
+	num[1] = 0;
+	num[2] = 0;
+	while (i < ft_strlen(game->line))
 	{
 		if (game->line[i] == 'E')
-			num_e++;
+			num[0]++;
 		else if (game->line[i] == 'P')
-			num_p++;
+			num[1]++;
 		else if (game->line[i] == 'C')
-			num_c++;
+			num[2]++;
+		i++;
 	}
-	if (num_e != 1)
-	    you_lose('E');
-	if (num_c == 0)
-        you_lose('C');
-	if (num_p != 1)
-	    you_lose('P');
+	if (num[0] != 1)
+		you_lose('E');
+	if (num[1] == 0)
+		you_lose('C');
+	if (num[2] != 1)
+		you_lose('P');
+	return (1);
+}
+
+int	check_map(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	while (i < ft_strlen(game->line))
+	{
+		if (game->line[i] != 'E' && game->line[i] != 'P'
+			&& game->line[i] != 'C' && game->line[i] != '1'
+			&& game->line[i] != '0')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	check_map_bonus(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	while (i < ft_strlen(game->line))
+	{
+		if (game->line[i] != 'E' && game->line[i] != 'P'
+			&& game->line[i] != 'C' && game->line[i] != '1'
+			&& game->line[i] != '0' && game->line[i] != 'A')
+			return (0);
+		i++;
+	}
 	return (1);
 }
 

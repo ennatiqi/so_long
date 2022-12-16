@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.h                                              :+:      :+:    :+:   */
+/*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/08 11:20:07 by rennatiq          #+#    #+#             */
-/*   Updated: 2022/12/08 11:47:47 by rennatiq         ###   ########.fr       */
+/*   Created: 2022/12/14 13:21:19 by rennatiq          #+#    #+#             */
+/*   Updated: 2022/12/16 11:17:20 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_H
-# define MAP_H
+#include "so_long.h"
 
-# include "../so_long.h"
-# include <fcntl.h>
-# include "mlx.h"
-
-void	setting_img(t_game *game);
-int		check_path(t_game *game);
-void	put_image(t_game *game);
-int		sheck_rectangular(t_game *game);
-int		map_contain(t_game *game);
-int		exit_game(t_game *game);
-char	*ft_strdup_m(char *s1);
-int	check_path_e(t_game *game);
-
-#endif
+int	key_press(int keycode, t_game *game)
+{
+	if (keycode == W_KEY)
+		move_w(game);
+	else if (keycode == S_KEY)
+		move_s(game);
+	else if (keycode == A_KEY)
+		move_a(game);
+	else if (keycode == D_KEY)
+		move_d(game);
+	else if (keycode == ESC_KEY)
+		exit(0);
+	return (0);
+}
