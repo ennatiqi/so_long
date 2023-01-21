@@ -6,7 +6,7 @@
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:28:52 by rennatiq          #+#    #+#             */
-/*   Updated: 2022/12/16 10:23:07 by rennatiq         ###   ########.fr       */
+/*   Updated: 2023/01/21 15:05:54 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,24 @@ void	put_image(t_game *game)
 	width = game->width;
 	game->img.avatar = mlx_xpm_file_to_image(game->mlx,
 			game->path.path_avatar, &width, &height);
+	if (!game->img.avatar)
+		you_lose('Q', game);
 	game->img.wall = mlx_xpm_file_to_image(game->mlx,
 			game->path.path_wall, &width, &height);
+	if (!game->img.wall)
+		you_lose('Q', game);
 	game->img.item = mlx_xpm_file_to_image(game->mlx,
 			game->path.path_item, &width, &height);
+	if (!game->img.item)
+		you_lose('Q', game);
 	game->img.door = mlx_xpm_file_to_image(game->mlx,
 			game->path.path_door, &width, &height);
+	if (!game->img.door)
+		you_lose('Q', game);
 	game->img.imt = mlx_xpm_file_to_image(game->mlx,
 			game->path.path_imt, &width, &height);
+	if (!game->img.imt)
+		you_lose('Q', game);
 }
 
 void	graph(t_game *game, int i, int j)
@@ -72,29 +82,13 @@ void	setting_img(t_game *game)
 		}
 		i++;
 	}
-}
-
-void	setting_img_bonus(t_game *game)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	while (i < game->height)
-	{
-		j = 0;
-		while (j < game->width)
-		{
-			graph(game, i, j);
-			j++;
-		}
-		i++;
-	}
-	if (game->walk_word)
-		mlx_string_put(game->mlx, game->win, 20,
-			game->height * 64 + 20, 0x00000000, game->walk_word);
+	mlx_destroy_image(game->mlx, game->img.wall);
+	mlx_destroy_image(game->mlx, game->img.item);
+	mlx_destroy_image(game->mlx, game->img.avatar);
+	mlx_destroy_image(game->mlx, game->img.door);
+	mlx_destroy_image(game->mlx, game->img.imt);
 	game->walk_word = ft_itoa(game->walk_cnt);
-	game->walk_word = ft_strjoin_walk("walking avatar : ", game->walk_word);
-	mlx_string_put(game->mlx, game->win, 20,
-		game->height * 64 + 20, 0x00FF0000, game->walk_word);
+	write(1, game->walk_word, ft_strlen(game->walk_word));
+	write(1, "\n", 1);
+	free(game->walk_word);
 }

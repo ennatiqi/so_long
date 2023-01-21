@@ -6,7 +6,7 @@
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:21:59 by rennatiq          #+#    #+#             */
-/*   Updated: 2022/12/16 11:17:12 by rennatiq         ###   ########.fr       */
+/*   Updated: 2023/01/21 15:04:09 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ void	random_fun(t_game *game, int m)
 int	monster_move(t_game *game)
 {
 	static int	i;
-	int			mon;
 	int			m;
 
 	i++;

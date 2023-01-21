@@ -6,7 +6,7 @@
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 21:31:03 by rennatiq          #+#    #+#             */
-/*   Updated: 2022/12/16 09:58:09 by rennatiq         ###   ########.fr       */
+/*   Updated: 2022/12/23 12:33:03 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ void	move_w_bonus(t_game *game)
 	if (game->line[i - game->width] == 'C' && game->all_col == game->col_cnt)
 		game->path.path_door = "./textures/exit.xpm";
 	if (game->line[i - game->width] == 'A')
-		you_lose('L');
+		you_lose('L', game);
 	if (game->line[i - game->width] == 'E' && game->all_col == game->col_cnt)
-		you_win();
+		you_win(game);
 	else if (game->line[i - game->width] != '1'
 		&& game->line[i - game->width] != 'E')
 	{
@@ -63,11 +63,11 @@ void	move_d_bonus(t_game *game)
 	if (game->line[i + 1] == 'C')
 		game->col_cnt++;
 	if (game->line[i + 1] == 'A')
-		you_lose('L');
+		you_lose('L', game);
 	if (game->line[i + 1] == 'C' && game->all_col == game->col_cnt)
 		game->path.path_door = "./textures/exit.xpm";
 	if (game->line[i + 1] == 'E' && game->all_col == game->col_cnt)
-		you_win();
+		you_win(game);
 	else if (game->line[i + 1] != '1' && game->line[i + 1] != 'E')
 	{
 		game->line[i] = '0';
@@ -91,11 +91,11 @@ void	move_a_bonus(t_game *game)
 	if (game->line[i - 1] == 'C')
 		game->col_cnt++;
 	if (game->line[i - 1] == 'A')
-		you_lose('L');
+		you_lose('L', game);
 	if (game->line[i - 1] == 'C' && game->all_col == game->col_cnt)
 		game->path.path_door = "./textures/exit.xpm";
 	if (game->line[i - 1] == 'E' && game->all_col == game->col_cnt)
-		you_win();
+		you_win(game);
 	else if (game->line[i - 1] != '1' && game->line[i - 1] != 'E')
 	{
 		game->line[i] = '0';
@@ -119,11 +119,11 @@ void	move_s_bonus(t_game *game)
 	if (game->line[i + game->width] == 'C')
 		game->col_cnt++;
 	if (game->line[i + game->width] == 'A')
-		you_lose('L');
+		you_lose('L', game);
 	if (game->line[i + game->width] == 'C' && game->all_col == game->col_cnt)
 		game->path.path_door = "./textures/exit.xpm";
 	if (game->line[i + game->width] == 'E' && game->all_col == game->col_cnt)
-		you_win();
+		you_win(game);
 	else if (game->line[i + game->width] != '1'
 		&& game->line[i + game->width] != 'E')
 	{

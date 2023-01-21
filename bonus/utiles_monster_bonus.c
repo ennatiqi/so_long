@@ -6,7 +6,7 @@
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 11:25:46 by rennatiq          #+#    #+#             */
-/*   Updated: 2022/12/16 09:57:46 by rennatiq         ###   ########.fr       */
+/*   Updated: 2022/12/23 12:30:19 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	set_monster(t_game *game)
 	game->count_monster = count_moster(game);
 	game->ex = malloc(game->count_monster * sizeof(int));
 	if (!game->ex)
-		you_lose('W');
+		you_lose('W', game);
 }
 
 void	monster_position(t_game *game)

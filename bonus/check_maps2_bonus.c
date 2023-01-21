@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_maps2.c                                      :+:      :+:    :+:   */
+/*   check_maps2_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 11:41:04 by rennatiq          #+#    #+#             */
-/*   Updated: 2023/01/15 23:42:48 by rennatiq         ###   ########.fr       */
+/*   Updated: 2023/01/15 23:42:43 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	map_contain(t_game *game)
 	return (1);
 }
 
-int	check_map(t_game *game)
+int	check_map_bonus(t_game *game)
 {
 	int	i;
 
@@ -49,7 +49,7 @@ int	check_map(t_game *game)
 	{
 		if (game->line[i] != 'E' && game->line[i] != 'P'
 			&& game->line[i] != 'C' && game->line[i] != '1'
-			&& game->line[i] != '0')
+			&& game->line[i] != '0' && game->line[i] != 'A')
 			return (0);
 		i++;
 	}

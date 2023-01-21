@@ -6,7 +6,7 @@
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 11:28:47 by rennatiq          #+#    #+#             */
-/*   Updated: 2023/01/21 17:26:37 by rennatiq         ###   ########.fr       */
+/*   Updated: 2023/01/21 17:13:05 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 # include <stdlib.h>
 # include <fcntl.h> 
 # include "mlx.h"
-#include <stdio.h>
-# include "./get_next_line/get_next_line.h"
+//# include "../ft_printf/ft_printf.h"
+# include "../get_next_line/get_next_line.h"
 
 # define ESC_KEY 53
 # define W_KEY 13
@@ -74,7 +74,6 @@ void	you_lose(int res, t_game *game);
 void	you_win(t_game *game);
 void	read_maps(t_game *game, char *map);
 
-void	ft_error(int c);
 void	move_s_bonus(t_game *game);
 void	move_a_bonus(t_game *game);
 void	move_d_bonus(t_game *game);
@@ -96,7 +95,7 @@ int		monster_move(t_game *game);
 char	*ft_itoa(int n);
 char	*ft_strjoin_walk(char *s1, char *s2);
 void	ft_norminet(t_game *game, char *path_i, char *path_m);
-
+void	ft_error(int c);
 void	setting_img(t_game *game);
 int		check_path(t_game *game);
 void	put_image(t_game *game);

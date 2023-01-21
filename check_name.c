@@ -6,7 +6,7 @@
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 13:02:52 by rennatiq          #+#    #+#             */
-/*   Updated: 2022/12/16 10:22:29 by rennatiq         ###   ########.fr       */
+/*   Updated: 2023/01/20 15:09:30 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int	check_ber(char *str)
 	char	*l;
 
 	l = ft_strchr(str, '.');
+	if (!l)
+		return (1);
 	if (ft_strcmp(l, ".ber"))
 		return (0);
 	return (1);

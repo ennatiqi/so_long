@@ -6,7 +6,7 @@
 /*   By: rennatiq <rennatiq@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 11:28:21 by rennatiq          #+#    #+#             */
-/*   Updated: 2022/12/16 12:14:57 by rennatiq         ###   ########.fr       */
+/*   Updated: 2023/01/20 15:14:26 by rennatiq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sheck_maps(t_game *game)
 {
 	if (!map_contain(game) || !sheck_rectangular(game) || !check_path(game)
 		|| !check_path_e(game) || !check_map(game))
-		you_lose('T');
+		you_lose('T', game);
 	return ;
 }
 
